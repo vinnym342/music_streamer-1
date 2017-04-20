@@ -5,5 +5,4 @@ class ApplicationController < ActionController::Base
     welcome_index_path
   end
 
-
 end

@@ -1,6 +1,6 @@
 <h1>Welcome <%= @user.email%></h1>
 
-<% form_tag welcome_search_path, :method => 'POST' do %>
+<%= form_tag welcome_search_path, :method => "get" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
