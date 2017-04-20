@@ -16,3 +16,40 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+   margin: 0;
+   text-align: center;
+ }
+
+ /***** Navbar *****/
+
+nav.navbar.navbar-default {
+  border: none;
+  background-color: #39444A;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+ul.nav.navbar-nav.navbar-right a,
+div.navbar-header a {
+  padding: 20px 30px;
+}
+
+nav.navbar.navbar-default a {
+  color: #fdfdfe;
+}
+
+nav.navbar.navbar-default a:hover {
+  color: #ccc;
+}
+
+
+/***** Buttons *****/
+
+.btn-primary,
+.btn-primary:hover {
+  color: #666; 
+  background-color: transparent;
+  border: none;
+}
