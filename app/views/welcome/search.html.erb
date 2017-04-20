@@ -1,36 +1,39 @@
 <h1>Search Results</h1>
 
 <h1>Songs</h1>
+<% if @resultsName!= nil %>
 <% @resultsName.each do |song|%>
 
-<p><%=song.name%></p>
+<p><%=song.title%></p>
 
+<% end %>
+<% else %>
+<h2>No songs found</h2>
 <% end %>
 
 <h1>Artist</h1>
+<% if @resultsArtist.empty? %>
+<h2>No songs found</h2>
+<% else %>
 <% @resultsArtist.each do |song|%>
-
-<p><%=song.name%></p>
-
+<p><%=song.title%></p>
 <% end %>
-
-<h1>Album</h1>
-<% @resultsAlbum.each do |song|%>
-
-<p><%=song.name%></p>
-
 <% end %>
 
 <h1>Genre</h1>
+<% if @resultsGenre.empty? %>
+<h2>No songs found</h2>
+<% else %>
 <% @resultsGenre.each do |song|%>
-
-<p><%=song.name%></p>
-
+<p><%=song.title%></p>
+<% end %>
 <% end %>
 
-<h1>Year</h1>
-<% @resultsYear.each do |song|%>
-
-<p><%=song.name%></p>
-
+<h1>Genre</h1>
+<% if @resultsGenre.empty? %>
+<h2>No songs found</h2>
+<% else %>
+<% @resultsGenre.each do |song|%>
+<p><%=song.title%></p>
+<% end %>
 <% end %>
