@@ -1,6 +1,16 @@
 <h1>Welcome <%= @user.email%></h1>
+
+<% form_tag welcome_search_path, :method => 'POST' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<h1>Your Playlists</h1>
 <% @user_playlists.each do |playlist|%>
 
-<h1><%=playlist.name%></h1>
+<p><%=playlist.name%></p>
 
 <% end %>
+<%= link_to "New Playlist" %>
