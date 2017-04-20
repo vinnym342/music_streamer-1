@@ -7,20 +7,20 @@
 <% else %>
 <table style="width:80%; margin-left: auto;margin-right: auto;">
   <tr>
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-    <th>Year</th>
-    <th>Duration</th>
+    <th style='width: 15%;'>Title</th>
+    <th style='width: 15%;'>Artist</th>
+    <th style='width: 15%;'>Genre</th>
+    <th style='width: 15%;'>Year</th>
+    <th style='width: 15%;'>Duration</th>
   </tr>
 <% @resultsName.each do |song|%>
 
   <tr>
-    <th><%=song.title%></th>
-    <th><%=song.artist%></th>
-    <th><%=song.genre%></th>
-    <th><%=song.year%></th>
-    <th><%=song.duration%></th>
+    <th style='width: 15%;'><%=song.title%></th>
+    <th style='width: 15%;'><%=song.artist%></th>
+    <th style='width: 15%;'><%=song.genre%></th>
+    <th style='width: 15%;'><%=song.year%></th>
+    <th style='width: 15%;'><%=song.duration%></th>
   </tr>
 
 <% end %>
@@ -33,20 +33,20 @@
 <% else %>
 <table style="width:80%; margin-left: auto;margin-right: auto;">
   <tr>
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-    <th>Year</th>
-    <th>Duration</th>
+    <th style='width: 15%;'>Title</th>
+    <th style='width: 15%;'>Artist</th>
+    <th style='width: 15%;'>Genre</th>
+    <th style='width: 15%;'>Year</th>
+    <th style='width: 15%;'>Duration</th>
   </tr>
 <% @resultsArtist.each do |song|%>
 
   <tr>
-    <th><%=song.title%></th>
-    <th><%=song.artist%></th>
-    <th><%=song.genre%></th>
-    <th><%=song.year%></th>
-    <th><%=song.duration%></th>
+    <th style='width: 15%;'><%=song.title%></th>
+    <th style='width: 15%;'><%=song.artist%></th>
+    <th style='width: 15%;'><%=song.genre%></th>
+    <th style='width: 15%;'><%=song.year%></th>
+    <th style='width: 15%;'><%=song.duration%></th>
   </tr>
 
 <% end %>
@@ -58,20 +58,20 @@
 <h2>No songs found</h2>
 <% else %>
 <tr>
-  <th>Title</th>
-  <th>Artist</th>
-  <th>Genre</th>
-  <th>Year</th>
-  <th>Duration</th>
+  <th style='width: 15%;'>Title</th>
+  <th style='width: 15%;'>Artist</th>
+  <th style='width: 15%;'>Genre</th>
+  <th style='width: 15%;'>Year</th>
+  <th style='width: 15%;'>Duration</th>
 </tr>
 <% @resultsGenre.each do |song|%>
 
 <tr>
-  <th><%=song.title%></th>
-  <th><%=song.artist%></th>
-  <th><%=song.genre%></th>
-  <th><%=song.year%></th>
-  <th><%=song.duration%></th>
+  <th style='width: 15%;'><%=song.title%></th>
+  <th style='width: 15%;'><%=song.artist%></th>
+  <th style='width: 15%;'><%=song.genre%></th>
+  <th style='width: 15%;'><%=song.year%></th>
+  <th style='width: 15%;'><%=song.duration%></th>
 </tr>
 
 <% end %>
