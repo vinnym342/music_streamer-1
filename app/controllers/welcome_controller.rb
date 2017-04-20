@@ -10,7 +10,6 @@ before_action :set_search, only: [:search]
     @resultsName = Song.where(title: @search)
     @resultsGenre = Song.where(genre: @search)
     @resultsArtist = Song.where(artist: @search)
-    @resultsName = Song.where(name: @search)
     @resultsYear = Song.where(year: @search)
   end
 
