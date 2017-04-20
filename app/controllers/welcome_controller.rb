@@ -6,12 +6,12 @@ class WelcomeController < ApplicationController
   end
 
   def search()
-    line = '--------------------------------------------'
-    @search = '%' + params[:search] + '%'
+    @search = params[:search] + '%'
     @resultsName = Song.where("title LIKE '#{@search}'")
     @resultsGenre = Song.where("genre LIKE '#{@search}'")
     @resultsArtist = Song.where("artist LIKE '#{@search}'")
     @resultsYear = Song.where("year LIKE '#{@search}'")
+
   end
 
 end
