@@ -1,0 +1,6 @@
+<h1>Welcome <%= @user.email%></h1>
+<% @user_playlists.each do |playlist|%>
+
+<h1><%=playlist.name%></h1>
+
+<% end %>
