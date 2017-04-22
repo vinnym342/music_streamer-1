@@ -4,7 +4,6 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
 # Log in and sign up function
 gem 'devise', '~> 4.2', '>= 4.2.1'
 # Bootstrap

@@ -1,3 +1,11 @@
+<% def humanize secs
+[[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map{ |count, name|
+  if secs > 0
+    secs, n = secs.divmod(count)
+    "#{n.to_i} #{name}"
+  end
+}.compact.reverse.join(' ')
+end %>
 <h1>Search Results</h1>
 
 <h1>Songs</h1>
@@ -20,7 +28,7 @@
     <th style='width: 15%;'><%=song.artist%></th>
     <th style='width: 15%;'><%=song.genre%></th>
     <th style='width: 15%;'><%=song.year%></th>
-    <th style='width: 15%;'><%=song.duration%></th>
+    <th style='width: 15%;'><%=humanize(song.duration)%></th>
   </tr>
 
 <% end %>
@@ -46,7 +54,7 @@
     <th style='width: 15%;'><%=song.artist%></th>
     <th style='width: 15%;'><%=song.genre%></th>
     <th style='width: 15%;'><%=song.year%></th>
-    <th style='width: 15%;'><%=song.duration%></th>
+    <th style='width: 15%;'><%=humanize(song.duration)%></th>
   </tr>
 
 <% end %>
@@ -71,7 +79,7 @@
   <th style='width: 15%;'><%=song.artist%></th>
   <th style='width: 15%;'><%=song.genre%></th>
   <th style='width: 15%;'><%=song.year%></th>
-  <th style='width: 15%;'><%=song.duration%></th>
+  <th style='width: 15%;'><%=humanize(song.duration)%></th>
 </tr>
 
 <% end %>

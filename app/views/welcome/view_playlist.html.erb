@@ -1,3 +1,11 @@
+<% def humanize secs
+[[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map{ |count, name|
+  if secs > 0
+    secs, n = secs.divmod(count)
+    "#{n.to_i} #{name}"
+  end
+}.compact.reverse.join(' ')
+end %>
 <% if @playlist_songs.empty? %>
 <h3>No songs in playlist</h3>
 <% else %>
@@ -8,6 +16,9 @@
     <td><h3>Genre</h3></td>
     <td><h3>Year</h3></td>
     <td><h3>Duration</h3></td>
+    <td><h3>Remove</h3></td>
+    <td><h3>UP</h3></td>
+    <td><h3>DOWN</h3></td>
   </tr>
 <% @playlist_songs.each do |song| %>
   <tr>
@@ -15,8 +26,10 @@
     <td><%= song.artist %></td>
     <td><%= song.genre %></td>
     <td><%= song.year %></td>
-    <td><%= song.duration %></td>
+    <td><%= humanize(song.duration) %></td>
     <td><%=link_to 'Remove from Playlist', action: 'remove_song' , playlist_id: @playlist_id,song_id: song.id%></td>
+    <td><%= link_to 'move up' %></td>
+    <td><%= link_to 'move down' %></td>
   </tr>
   <% end %>
   </table>

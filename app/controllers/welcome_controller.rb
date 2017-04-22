@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def index
     @user = current_user
     @user_playlists = Playlist.where(user_id: current_user.id).order(:order)
@@ -47,6 +46,34 @@ class WelcomeController < ApplicationController
     song_to_delete = PlaylistToSong.where(playlist_id: playlist_id,song_id: song_id).first
     song_to_delete.destroy
     redirect_to action: 'view_playlist',playlist_id: playlist_id
+  end
+
+  def increase_playlist_order
+    #work in progress
+    redirect_to action: 'index'
+  end
+
+  def decrease_playlist_order
+    #work in progress
+    redirect_to action: 'index'
+  end
+  def increase_playlist_order
+    #work in progress
+    redirect_to action: ''
+  end
+  def decrease_song_order
+    #work in progress
+    redirect_to action: ''
+  end
+
+  def switch_song_position
+    #work in progress
+    redirect_to action: 'index'
+  end
+
+  def switch_playlist_position
+    #work in progress
+    redirect_to action: 'index'
   end
 
 end
