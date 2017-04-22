@@ -21,3 +21,5 @@ Song.create(title: 'GZA', duration: 225, year: 2002, artist: 'Fame', genre: 'Hip
 Song.create(title: 'How High', duration: 245, year: 1995, artist: 'Method Man & Redman', genre: 'Hip-hop')
 Song.create(title: 'Pack The Pipe', duration: 315, year: 1992, artist: 'The Pharcyde', genre: 'Hip-hop')
 Song.create(title: 'Superhigh', duration: 236, year: 2010, artist: 'Rick Ross feat. Curren$y and Wiz Khalifa', genre: 'Hip-hop')
+Profile.create(first_name: 'Anderson',last_name: '.Paak',dob: Date.parse("08/02/1986"),avatar: 'http://static.djbooth.net/pics-features/rect/anderson-paak-2016-year-of.jpg',bio: 'Just an ordinary musical genuis',user_id: 1)
+Profile.create(first_name: 'Eddie',last_name: 'Huang',dob: Date.parse("01/03/1985"),avatar: 'https://addicted2success.com/wp-content/uploads/2012/10/eddie-huang-entrepreneur1.jpeg',bio: 'Foodie, human panda and the OG chinkstronaut ',user_id: 2)

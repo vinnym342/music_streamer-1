@@ -1,5 +1,9 @@
-<h1>Welcome <%= @user.email%></h1>
-
+<h1>Welcome <%= @welcome_text%>!</h1>
+<% if Profile.where(user_id: current_user.id).exists? %>
+<%= link_to "View Profile", { action: "view_profile" }%>
+<% else %>
+<%= link_to "Create Profile", { action: "create_profile_page" }%>
+<% end %>
 <%= form_tag welcome_search_path, :method => "get" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>

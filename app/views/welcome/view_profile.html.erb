@@ -1,0 +1,9 @@
+<%= @profile.first_name %> <%= @profile.last_name %> <br>
+<%= @profile.dob.strftime("%B %e %Y") %> <br>
+<img src="<%= @profile.avatar %>" alt="Avatar photo"> <br>
+<p>
+  <% @bio_string.each do |line|%>
+  <%= line %> <br>
+  <% end %>
+</p>
+<%= link_to("Edit Profile", { action: "edit_profile_page" }) %>

@@ -1,0 +1,17 @@
+<%= form_tag welcome_edit_profile_path, :method => "POST" do %>
+  <p>
+    <h2>First Name: </h2>
+    <%= text_field_tag :first_name, params[:first_name],placeholder: @profile.first_name %>
+    <h2>Last Name:</h2>
+    <%= text_field_tag :last_name, params[:last_name],placeholder: @profile.last_name %>
+    <h2>Date of Birth</h2>
+    <p>Day</p>
+    <%=date_select("date","date",default: { day: @profile.dob.day ,month: @profile.dob.mon,year: @profile.dob.year}) %>
+    <h2>Avatar URL</h2>
+    <%= text_field_tag :avatar, params[:avatar],placeholder: @profile.avatar %>
+    <h2>Bio</h2>
+    <%= text_area_tag :bio, params[:bio],rows: "5", cols: '100'%> <br>
+    <%= submit_tag "Change", :name => nil %>
+    <%= link_to "Cancel", {action: 'view_profile'} %>
+  </p>
+  <% end %>
