@@ -1,4 +1,4 @@
-<%= form_tag welcome_edit_profile_path, :method => "POST" do %>
+<%= form_tag profile_edit_path, :method => "POST" do %>
   <p>
     <h2>First Name: </h2>
     <%= text_field_tag :first_name, params[:first_name],placeholder: @profile.first_name %>
@@ -12,6 +12,6 @@
     <h2>Bio</h2>
     <%= text_area_tag :bio, params[:bio],rows: "5", cols: '100'%> <br>
     <%= submit_tag "Change", :name => nil %>
-    <%= link_to "Cancel", {action: 'view_profile'} %>
+    <%= link_to "Cancel", {action: 'view'} %>
   </p>
   <% end %>

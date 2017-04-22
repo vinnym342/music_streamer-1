@@ -1,16 +1,16 @@
-<%= form_tag welcome_create_profile_path, :method => "POST" do %>
+<%= form_tag profile_create_path, :method => "POST" do %>
   <p>
     <h2>First Name: </h2>
     <%= text_field_tag :first_name, params[:first_name],placeholder: 'First Name' %>
     <h2>Last Name:</h2>
     <%= text_field_tag :last_name, params[:last_name],placeholder: 'Second Name' %>
     <h2>Date of Birth</h2>
-    <%= text_field_tag :dob, params[:dob],placeholder: 'DD-MM-YYY' %>
+    <%=date_select("date","date",start_year: 1920,default: { day: Date.today.day ,month: Date.today.mon,year: Date.today.year}) %>
     <h2>Avatar URL</h2>
-    <%= text_field_tag :avatar, params[:avatar],placeholder: 'http://www.example.com/example.jpg' %>
+    <%= text_field_tag :avatar, params[:avatar],placeholder: 'http://www.animals.com/panda.jpg' %>
     <h2>Bio</h2>
     <%= text_area_tag :bio, params[:bio],rows: "5", cols: '100'%> <br>
     <%= submit_tag "Create Profile", :name => nil %>
-    <%= link_to "Cancel", {action: 'view_profile'} %>
+    <%= link_to "Cancel", {action: 'view'} %>
   </p>
   <% end %>

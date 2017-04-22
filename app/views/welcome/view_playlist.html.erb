@@ -1,0 +1,23 @@
+<% if @playlist_songs.empty? %>
+<h3>No songs in playlist</h3>
+<% else %>
+<table style='width:80%; margin-left: auto;margin-right:auto;'>
+  <tr>
+    <td><h3>Song</h3></td>
+    <td><h3>Artist</h3></td>
+    <td><h3>Genre</h3></td>
+    <td><h3>Year</h3></td>
+    <td><h3>Duration</h3></td>
+  </tr>
+<% @playlist_songs.each do |song| %>
+  <tr>
+    <td><%= song.title %></td>
+    <td><%= song.artist %></td>
+    <td><%= song.genre %></td>
+    <td><%= song.year %></td>
+    <td><%= song.duration %></td>
+    <td><%=link_to 'Remove from Playlist', action: 'remove_song' , playlist_id: @playlist_id,song_id: song.id%></td>
+  </tr>
+  <% end %>
+  </table>
+<% end %>

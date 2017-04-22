@@ -8,10 +8,12 @@
 
 User.create(email: 'abc@gmail.com',password: 'abcabc')
 User.create(email: '123@gmail.com',password: '123123')
+
 Playlist.create(name: 'Hype',user_id: 1)
 Playlist.create(name: 'Chill',user_id: 1)
 Playlist.create(name: 'HAM',user_id: 1)
 Playlist.create(name: 'Chill Tracks',user_id: 2)
+
 Song.create(title: 'Ya Don\'t Quit', duration: 266, year: 2012, artist: 'Ice-T', genre: 'Hip-hop')
 Song.create(title: 'The Symphony', duration: 365, year: 1988, artist: 'Marley Marl', genre: 'Hip-hop')
 Song.create(title: 'N.Y. State of Mind', duration: 294, year: 1983, artist: 'Nas', genre: 'Hip-hop')
@@ -21,5 +23,12 @@ Song.create(title: 'GZA', duration: 225, year: 2002, artist: 'Fame', genre: 'Hip
 Song.create(title: 'How High', duration: 245, year: 1995, artist: 'Method Man & Redman', genre: 'Hip-hop')
 Song.create(title: 'Pack The Pipe', duration: 315, year: 1992, artist: 'The Pharcyde', genre: 'Hip-hop')
 Song.create(title: 'Superhigh', duration: 236, year: 2010, artist: 'Rick Ross feat. Curren$y and Wiz Khalifa', genre: 'Hip-hop')
+
 Profile.create(first_name: 'Anderson',last_name: '.Paak',dob: Date.parse("08/02/1986"),avatar: 'http://static.djbooth.net/pics-features/rect/anderson-paak-2016-year-of.jpg',bio: 'Just an ordinary musical genuis',user_id: 1)
 Profile.create(first_name: 'Eddie',last_name: 'Huang',dob: Date.parse("01/03/1985"),avatar: 'https://addicted2success.com/wp-content/uploads/2012/10/eddie-huang-entrepreneur1.jpeg',bio: 'Foodie, human panda and the OG chinkstronaut ',user_id: 2)
+
+PlaylistToSong.create(playlist_id: 1,song_id: 1,order: 1)
+PlaylistToSong.create(playlist_id: 1,song_id: 2,order: 2)
+PlaylistToSong.create(playlist_id: 1,song_id: 3,order: 3)
+PlaylistToSong.create(playlist_id: 1,song_id: 4,order: 4)
+PlaylistToSong.create(playlist_id: 1,song_id: 5,order: 5)
