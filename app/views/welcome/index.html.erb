@@ -1,5 +1,9 @@
-<h1>Welcome <%= @user.email%></h1>
-
+<h1>Welcome <%= @welcome_text%>!</h1>
+<% if Profile.where(user_id: current_user.id).exists? %>
+<%= link_to "View Profile", { controller: 'profile', action: 'view' }%>
+<% else %>
+<%= link_to "Create Profile", { controller: 'profile',action: 'create_page' }%>
+<% end %>
 <%= form_tag welcome_search_path, :method => "get" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -8,9 +12,34 @@
 <% end %>
 
 <h1>Your Playlists</h1>
-<% @user_playlists.each do |playlist|%>
 
-<p><%=playlist.name%></p>
+<div class="playlists">
+  <%= form_tag welcome_create_playlist_path, :method => "POST" do %>
+    <p>
+      <h2>Playlist Name</h2>
+      <%= text_field_tag :playlist_name, params[:playlist_name],placeholder: 'Best Playlist Evar' %>
+      <%= submit_tag "Create Playlist", :name => nil %>
+    </p>
+  <% end %>
+<table style='width:80%; margin-left:auto; margin-right:auto;'>
+  <tr>
+    <td><h2>Name</h2></td>
+    <td><h2>Show</h2></td>
+    <td><h2>Delete</h2></td>
+  </tr>
+  <% @user_playlists.each do |playlist|%>
+  <tr>
+    <td><p><%=playlist.name%></p></td>
+    <td><p><%=link_to 'show',action: 'view_playlist' ,playlist_id: playlist.id%></p></td>
+    <td><p><%=link_to 'delete',action: 'delete_playlist' ,playlist_id: playlist.id%></p></td>
+    <td><%= link_to 'move up' %></td>
+    <td><%= link_to 'move down' %></td>
+  </tr>
+  <% end %>
+</table>
 
+  <!-- Could you use css or javascript to make it appear when clicked -->
+
+</div>
 <% end %>
 <%= link_to "New Playlist", new_playlist_path %>

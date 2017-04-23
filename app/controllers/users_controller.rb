@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    # if user_signed_in? == true
-    #   redirect_to "welcome/index"
-    # end
+
   end
 
 
