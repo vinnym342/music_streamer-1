@@ -9,13 +9,13 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def search
-    @search = params[:search] + '%'
-    @year = params[:year]
+  def search()
+    @search = params[:search]
     @resultsName = Song.where("title LIKE '#{@search}'")
     @resultsGenre = Song.where("genre LIKE '#{@search}'")
     @resultsArtist = Song.where("artist LIKE '#{@search}'")
     @resultsYear = Song.where("year LIKE '#{@search}'")
+
   end
   def create_playlist
     playlist = Playlist.new(name: params[:playlist_name],user_id: current_user.id)

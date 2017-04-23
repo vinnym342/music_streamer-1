@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post 'profile/edit_success'
   post 'profile/edit'
   post 'profile/create'
-  # get 'welcome/edit_profile'
+  resources :playlists
   resources :songs
   devise_for :users
   resources :users
