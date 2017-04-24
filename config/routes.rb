@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'welcome/decrease_song_order'
 
   post 'welcome/create_playlist'
+  post 'welcome/add_song_to_playlist'
 
   get 'profile/view'
   get 'profile/edit_page'

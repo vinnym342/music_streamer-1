@@ -1,0 +1,37 @@
+<% if results.empty? %>
+<h2>No songs found</h2>
+
+<% else %>
+<table style="width:80%; margin-left: auto;margin-right: auto;">
+  <tr>
+    <th style='width: 16%;'>Title</th>
+    <th style='width: 16%;'>Artist</th>
+    <th style='width: 16%;'>Genre</th>
+    <th style='width: 16%;'>Year</th>
+    <th style='width: 16%;'>Duration</th>
+    <th style='width: 16%;'>Playlist</th>
+  </tr>
+<% results.each do |song|%>
+
+  <tr>
+    <th style='width: 16%;'><%=song.title%></th>
+    <th style='width: 16%;'><%=song.artist%></th>
+    <th style='width: 16%;'><%=song.genre%></th>
+    <th style='width: 16%;'><%=song.year%></th>
+    <th style='width: 16%;'><%=humanize(song.duration)%></th>
+    <th style='width: 16%;'>
+      <% if @all_playlists.empty? %>
+      <p>No playlists</p>
+      <% else %>
+        <%= form_tag action: 'add_song_to_playlist', :method => "get" do %>
+        <%= select_tag "playlist_id",options_for_select(@all_playlists.collect {|playlist| [playlist.name,playlist.id]}) %>
+        <%= hidden_field_tag(:search_string, "#{@search}") %>
+        <%= hidden_field_tag(:song_id, "#{song.id}") %>
+        <%= submit_tag "Add To Playlist", name: nil %>
+        <% end %>
+      <% end %>
+    </th>
+  </tr>
+<% end %>
+</table>
+<% end %>

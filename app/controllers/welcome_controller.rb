@@ -8,29 +8,47 @@ class WelcomeController < ApplicationController
       @welcome_text = @user.email
     end
   end
+  def add_song_to_playlist
+
+  end
+
+  def add_song_to_playlist
+    search_string = params[:search_string].chomp('%')
+    playlist_id = params[:playlist_id].to_i
+    song_id = params[:song_id].to_i
+    last_song_in_playlist = PlaylistToSong.where(playlist_id: playlist_id).order(:order).last
+    bottom_order_value = 1
+    if !last_song_in_playlist == nil
+    bottom_order_value = last_song_in_playlist.order + 1
+    end
+    new_entry = PlaylistToSong.new(playlist_id: playlist_id,song_id: song_id, order: (bottom_order_value))
+    pp new_entry
+    new_entry.save
+    redirect_to action: 'search',search: search_string
+  end
 
   def search()
-    @search = params[:search]
+    @all_playlists = Playlist.where(user_id: current_user.id)
+    @search = params[:search] + '%'
     @resultsName = Song.where("title LIKE '#{@search}'")
     @resultsGenre = Song.where("genre LIKE '#{@search}'")
     @resultsArtist = Song.where("artist LIKE '#{@search}'")
     @resultsYear = Song.where("year LIKE '#{@search}'")
-
   end
+
   def create_playlist
     playlist = Playlist.new(name: params[:playlist_name],user_id: current_user.id)
     playlist.save
-    redirect_to action: 'index'
+    redirect_to action:'index', search: params[:search]
   end
 
   def view_playlist
-    @playlist_id = request.GET[:playlist_id]
+    @playlist_id = params[:playlist_id]
     @playlist_songs = []
     @playlist_to_songs_reference = PlaylistToSong.where(playlist_id: @playlist_id).order(:order)
     @playlist_to_songs_reference.each do |song_reference|
-    @playlist_songs <<  Song.where(id: song_reference.id).first
+    @playlist_songs <<  Song.where(id: song_reference.song_id).first
     end
-
   end
 
   def delete_playlist
