@@ -13,8 +13,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require users
 //= require chat
+//= require users
 //= require turbolinks
 //= require private_pub
 //= require_tree .
