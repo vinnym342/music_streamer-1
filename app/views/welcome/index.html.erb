@@ -22,11 +22,6 @@
     </p>
   <% end %>
 <table style='width:80%; margin-left:auto; margin-right:auto;'>
-  <tr>
-    <td><h2>Name</h2></td>
-    <td><h2>Show</h2></td>
-    <td><h2>Delete</h2></td>
-  </tr>
   <% @user_playlists.each do |playlist|%>
   <tr>
     <td><p><%=playlist.name%></p></td>
@@ -39,7 +34,19 @@
   <% end %>
 </table>
 
-  <!-- Could you use css or javascript to make it appear when clicked -->
-
 </div>
 <%= link_to "New Playlist", new_playlist_path %>
+
+  <h1>Users</h1>
+  <table style='width:80%; margin-left:auto; margin-right:auto;'>
+    <% @profiles.each do |profile|%>
+  <tr>
+    <td><p><%=profile.first_name%></p></td>
+    <td><p><%=profile.last_name%></p></td>
+      <td>
+        <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => profile.user_id %>
+      </td>
+  </tr>
+  <% end %>
+</table>

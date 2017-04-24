@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @profiles = Profile.order('first_name ASC')
     @user = current_user
     @user_playlists = Playlist.where(user_id: current_user.id).order(:order)
     if Profile.where(user_id: current_user.id).exists?
