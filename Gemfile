@@ -18,8 +18,8 @@ group :development, :test do
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 end
+
 group :production do
-# Use sqlite3 as the database for Active Record
 gem 'pg'
 end
 # Use Puma as the app server
