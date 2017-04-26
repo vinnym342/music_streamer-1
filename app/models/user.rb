@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :playlists
   has_one :profile
+  has_many :conversations, :foreign_key => :sender_id
 end
